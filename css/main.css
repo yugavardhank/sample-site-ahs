@@ -1,0 +1,655 @@
+/* 
+===============================
+    Main Styles for Apollo Allied Health Centres
+    - Core styles shared across all pages
+    - Typography, colors, buttons, navigation, footer
+===============================
+*/
+
+/* Base Styles & Reset */
+:root {
+    --primary: #00A0B0;
+    --primary-dark: #007A85;
+    --primary-light: #B3E0E5;
+    --secondary: #F57F17;
+    --secondary-dark: #BC5100;
+    --secondary-light: #FFAD42;
+    --accent: #6A1B9A;
+    --gray-dark: #333333;
+    --gray: #666666;
+    --gray-light: #CCCCCC;
+    --gray-lightest: #F5F5F5;
+    --white: #FFFFFF;
+    --black: #000000;
+    --success: #4CAF50;
+    --warning: #FF9800;
+    --error: #F44336;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 4px;
+    --transition: all 0.3s ease;
+    --font-heading: 'Arial', sans-serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--gray-dark);
+    background-color: var(--white);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+    color: var(--gray-dark);
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2.2rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1.6rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.4rem;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* Header - Default */
+header {
+    position: fixed;
+    top: 1rem; /* Small margin from top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%; /* Shrinks width to allow border radius */
+    max-width: 1200px; /* Optional: prevents it from stretching too wide */
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+    -webkit-text-fill-color: #FFFFFF;
+    padding: 2rem 2rem;
+    height: auto;
+    border-radius: 2rem; /* Optional: default curve before scroll */
+}
+
+/* Header when scrolled */
+header.scrolled {
+    background-color: var(--white);
+    opacity: 0.95;
+    -webkit-text-fill-color: #000000;
+    color: #000000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 50rem; /* Fully curved oval shape */
+    padding: 1rem 2rem; /* Reduce padding on scroll for compact look */
+}
+
+/* Container inside Header */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 4rem;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2.4rem;
+}
+
+nav ul li a {
+    color: var(--gray-dark);
+    font-weight: 500;
+    padding: 0.8rem 0;
+    position: relative;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+nav ul li a:hover:after,
+nav ul li a.active:after {
+    width: 100%;
+}
+
+nav ul li a.active {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    header {
+        color: var(--black);
+        -webkit-text-fill-color: var(--black);
+    }
+
+    header.scrolled {
+        color: var(--black);
+        -webkit-text-fill-color: var(--black);
+    }
+
+    nav ul li a {
+        color: var(--black);
+    }
+
+    nav ul li a:hover {
+        color: var(--primary-dark);
+    }
+}
+
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 2.5rem;
+    height: 3px;
+    background-color: var(--gray-dark);
+    margin: 3px 0;
+    transition: var(--transition);
+}
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: var(--white);
+    padding: 8rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.page-hero h1 {
+    color: var(--white);
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-hero p {
+    font-size: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Forms */
+form {
+    margin-top: 2.4rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.6rem;
+}
+
+.form-group {
+    margin-bottom: 1.6rem;
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 12rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 1rem;
+    margin-top: 0.4rem;
+}
+
+.checkbox-group label {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+.form-submit {
+    margin-top: 2.4rem;
+}
+
+/* We are Apollo */
+.apollo-section {
+    padding: 6rem 2rem;
+    color: #000;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.626);
+    font-family: 'Poppins', sans-serif;
+    background-image: url('s1_2.jpg'); /* Ensure the image path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.apollo-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.608); /* Slightly lighter dimming for better readability */
+    z-index: 1;
+}
+
+.apollo-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.apollo-title {
+    font-size: 4.8rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 3rem;
+}
+
+.apollo-title span {
+    color: var(--primary-dark); /* Use primary-dark for consistency */
+}
+
+.apollo-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.stat-block {
+    text-align: center;
+}
+
+.stat-block h3 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--primary-dark); /* Use primary color for emphasis */
+    margin-bottom: 0.5rem;
+}
+
+.stat-block p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-style: bold;
+    color: var(--gray-dark); /* Use gray-dark for better contrast */
+}
+
+.divider {
+    width: 2px;
+    height: 70px;
+    background-color: var(--secondary); /* Use secondary color for visual consistency */
+}
+
+.apollo-summary {
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--gray-dark); /* Use gray-dark for base text */
+    line-height: 1.7;
+}
+
+.apollo-summary span {
+    color: var(--primary-dark); /* Highlight spans with primary-dark */
+    font-size: 4.2rem; /* Slightly larger font size for emphasis */
+    font-weight: 700;
+    background-color: var(--primary-light); /* Add background highlight */
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius); /* Rounded edges for better design */
+}
+
+   
+/* CTA Sections */
+.enquiry-cta {
+    background-color: var(--primary-light);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    margin-bottom: 1.6rem;
+}
+
+.cta-content p {
+    margin-bottom: 2.4rem;
+    font-size: 1.8rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--gray-dark);
+    color: var(--white);
+    padding: 6rem 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.footer-logo {
+    margin-bottom: 2.4rem;
+}
+
+.footer-logo img {
+    height: 4rem;
+    margin-bottom: 1.6rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.footer-column h4 {
+    color: var(--white);
+    margin-bottom: 1.6rem;
+    font-size: 1.8rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a,
+.footer-column ul li {
+    color: var(--gray-light);
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+}
+
+.footer-column ul li i {
+    margin-right: 1rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.8rem;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    html {
+        font-size: 60%;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav.active {
+        max-height: 30rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    
+    nav ul li {
+        margin: 0 0 1.6rem 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 2.4rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 55%;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.4rem;
+    }
+    
+    .logo img {
+        height: 3.2rem;
+    }
+    
+    .cta-button {
+        display: none;
+    }
+    
+    .page-hero {
+        padding: 4rem 0;
+    }
+}
